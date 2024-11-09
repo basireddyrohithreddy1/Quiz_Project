@@ -1,5 +1,6 @@
 package com.example.quizapplication;
 
+import java.util.Collections;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -66,6 +67,10 @@ public class QuizActivity extends AppCompatActivity {
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
                     questionList = queryDocumentSnapshots.getDocuments();
+
+                    // Shuffle the list to randomize the question order
+                    Collections.shuffle(questionList);
+
                     displayQuestion();
                 });
     }
@@ -75,6 +80,7 @@ public class QuizActivity extends AppCompatActivity {
             timer.cancel();
         }
 
+        // Fetch the current shuffled question based on index
         DocumentSnapshot questionDoc = questionList.get(currentQuestionIndex);
         questionText.setText(questionDoc.getString("question"));
 
@@ -89,8 +95,8 @@ public class QuizActivity extends AppCompatActivity {
         timer = new CountDownTimer(15000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                // Display the timer
-                scoreTracker.setText("Time left: " + millisUntilFinished / 1000 + "  Score: " + score);
+                // Display the timer and score
+                scoreTracker.setText("Time left: " + millisUntilFinished / 1000 + "  Score: " + 20 * score + "%");
             }
 
             @Override
@@ -121,10 +127,12 @@ public class QuizActivity extends AppCompatActivity {
                 score++;
             }
         }
+
+        // Calculate the percentage after each answer
         int percentage = (score * 100) / totalQuestions;
 
-        // Update the score immediately after each question
-        scoreTracker.setText("Time left: " + (15000 / 1000) + "  Score: " + percentage +"%");  // Update the score display
+        // Update the score tracker with the new score and percentage
+        scoreTracker.setText("Time left: " + (15000 / 1000) + "  Score: " + percentage + "%");
     }
 
     private void saveScore() {

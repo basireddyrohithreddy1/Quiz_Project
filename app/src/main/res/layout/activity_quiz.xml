@@ -4,15 +4,20 @@
     android:layout_height="match_parent"
     android:background="#DFF0D8">
 
+    <!-- Timer TextView -->
     <TextView
         android:id="@+id/scoreTracker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Score: 0%"
+        android:text="Time left: 15"
         android:textSize="20sp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp" />
 
+
+    <!-- Question Text -->
     <TextView
         android:id="@+id/questionText"
         android:layout_width="wrap_content"
@@ -22,6 +27,7 @@
         android:text="Question text here"
         android:textSize="18sp" />
 
+    <!-- Options Group -->
     <RadioGroup
         android:id="@+id/optionsGroup"
         android:layout_width="wrap_content"
@@ -37,6 +43,7 @@
 
     </RadioGroup>
 
+    <!-- Next Button -->
     <Button
         android:id="@+id/nextButton"
         android:layout_width="wrap_content"

@@ -19,7 +19,7 @@ public class ScoreSummaryActivity extends AppCompatActivity {
         Button buttonRestartQuiz = findViewById(R.id.buttonRestartQuiz);
 
         int score = getIntent().getIntExtra("score", 0);
-        scoreSummaryText.setText("Your Score: " + score + "%");
+        scoreSummaryText.setText("Your Score: " + 20*score + "%");
 
         buttonViewHistory.setOnClickListener(v -> startActivity(new Intent(ScoreSummaryActivity.this, HistoryActivity.class)));
 

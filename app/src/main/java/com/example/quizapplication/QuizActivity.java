@@ -89,7 +89,8 @@ public class QuizActivity extends AppCompatActivity {
         timer = new CountDownTimer(15000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                scoreTracker.setText("Time left: " + millisUntilFinished / 1000);
+                // Display the timer
+                scoreTracker.setText("Time left: " + millisUntilFinished / 1000 + "  Score: " + score);
             }
 
             @Override
@@ -120,13 +121,17 @@ public class QuizActivity extends AppCompatActivity {
                 score++;
             }
         }
+        int percentage = (score * 100) / totalQuestions;
+
+        // Update the score immediately after each question
+        scoreTracker.setText("Time left: " + (15000 / 1000) + "  Score: " + percentage +"%");  // Update the score display
     }
 
     private void saveScore() {
         String userId = "Guest";  // You can replace this with actual user ID if you have user registration
-
+        int finalScore = score * 20;
         // Create a new Score object
-        Score scoreObj = new Score(userId, score);
+        Score scoreObj = new Score(userId, finalScore);
 
         // Reference to the "scores" collection in Firestore
         FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -143,5 +148,4 @@ public class QuizActivity extends AppCompatActivity {
                     System.err.println("Error saving score: " + e.getMessage());
                 });
     }
-
 }

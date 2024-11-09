@@ -2,7 +2,6 @@ package com.example.quizapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,12 +13,19 @@ public class ScoreSummaryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score_summary);
 
-        TextView scoreSummaryText = findViewById(R.id.scoreSummaryText);
+        TextView correctAnswersText = findViewById(R.id.correctAnswersText);
+        TextView scorePercentageText = findViewById(R.id.scorePercentageText);
         Button buttonViewHistory = findViewById(R.id.buttonViewHistory);
         Button buttonRestartQuiz = findViewById(R.id.buttonRestartQuiz);
 
-        int score = getIntent().getIntExtra("score", 0);
-        scoreSummaryText.setText("Your Score: " + 20*score + "%");
+        int correctAnswers = getIntent().getIntExtra("score", 0);
+
+        // Display the number of correct answers
+        correctAnswersText.setText("Correct Answers: " + correctAnswers + "/5");
+
+        // Display the score percentage
+        int scorePercentage = 20 * correctAnswers;
+        scorePercentageText.setText("Your Score: " + scorePercentage + "%");
 
         buttonViewHistory.setOnClickListener(v -> startActivity(new Intent(ScoreSummaryActivity.this, HistoryActivity.class)));
 

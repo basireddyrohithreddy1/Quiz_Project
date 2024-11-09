@@ -3,23 +3,40 @@
     android:layout_height="match_parent"
     android:background="#DFF0D8">
 
+    <!-- Correct Answers Text -->
     <TextView
-        android:id="@+id/scoreSummaryText"
+        android:id="@+id/correctAnswersText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Your Score"
-        android:textSize="20sp" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Correct Answers"
+        android:textSize="20sp"
+        android:textColor="#333333" />
 
+    <!-- Score Percentage Text -->
+    <TextView
+        android:id="@+id/scorePercentageText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/correctAnswersText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Your Score"
+        android:textSize="20sp"
+        android:textColor="#333333" />
+
+    <!-- View History Button -->
     <Button
         android:id="@+id/buttonViewHistory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/scoreSummaryText"
+        android:layout_below="@id/scorePercentageText"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:text="View History" />
 
+    <!-- Restart Quiz Button -->
     <Button
         android:id="@+id/buttonRestartQuiz"
         android:layout_width="wrap_content"

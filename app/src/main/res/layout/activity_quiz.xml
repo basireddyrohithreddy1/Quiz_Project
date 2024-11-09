@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DFF0D8">
+
+    <TextView
+        android:id="@+id/scoreTracker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Score: 0%"
+        android:textSize="20sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/questionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:text="Question text here"
+        android:textSize="18sp" />
+
+    <RadioGroup
+        android:id="@+id/optionsGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/questionText"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true">
+
+        <RadioButton android:id="@+id/option1" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <RadioButton android:id="@+id/option2" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <RadioButton android:id="@+id/option3" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <RadioButton android:id="@+id/option4" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/optionsGroup"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Next Question" />
+
+</RelativeLayout>

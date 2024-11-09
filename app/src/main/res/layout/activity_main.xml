@@ -1,19 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:padding="16dp"
+    android:background="#A8E6A1">
 
-    <TextView
+    <!-- Button for accessing HistoryActivity -->
+    <Button
+        android:id="@+id/buttonHistory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="History"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:backgroundTint="#008577"
+        android:textColor="@android:color/white"
+        android:padding="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Nature Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardNature"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonHistory"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp"
+        android:cardBackgroundColor="#A8E6A1"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nature"
+            android:textSize="18sp"
+            android:textColor="@android:color/black" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Science Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardScience"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cardNature"
+        android:layout_marginBottom="16dp"
+        android:cardBackgroundColor="#A8E6A1"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Science"
+            android:textSize="18sp"
+            android:textColor="@android:color/black" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- Computer Science Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardComputerScience"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cardScience"
+        android:cardBackgroundColor="#A8E6A1"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Computer Science"
+            android:textSize="18sp"
+            android:textColor="@android:color/black" />
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

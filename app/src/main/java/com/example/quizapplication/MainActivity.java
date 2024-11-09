@@ -1,24 +1,40 @@
 package com.example.quizapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
+import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.cardview.widget.CardView;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
+        CardView cardNature = findViewById(R.id.cardNature);
+        CardView cardScience = findViewById(R.id.cardScience);
+        CardView cardComputerScience = findViewById(R.id.cardComputerScience);
+        View buttonHistory = findViewById(R.id.buttonHistory);
+
+        // Set click listeners for each card
+        cardNature.setOnClickListener(v -> openQuiz("Nature"));
+        cardScience.setOnClickListener(v -> openQuiz("Science"));
+        cardComputerScience.setOnClickListener(v -> openQuiz("ComputerScience"));
+
+        // Set click listener for the history button
+        buttonHistory.setOnClickListener(v -> openHistory());
+    }
+
+    private void openQuiz(String topic) {
+        Intent intent = new Intent(MainActivity.this, QuizActivity.class);
+        intent.putExtra("topic", topic);
+        startActivity(intent);
+    }
+
+    private void openHistory() {
+        Intent intent = new Intent(MainActivity.this, HistoryActivity.class);
+        startActivity(intent);
     }
 }
